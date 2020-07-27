@@ -68,12 +68,24 @@ class Animal {
     this.legs = 4;
     this.cold_blooded = false;
   }
+
+  get animalName() {
+    return this.name;
+  }
+
+  get animalLegs() {
+    return this.legs;
+  }
+
+  get animalColdBlooded() {
+    return this.cold_blooded;
+  }
 }
 
 var sheep = new Animal("Shaun");
-console.log(sheep.name); // "shaun"
-console.log(sheep.legs); // 4
-console.log(sheep.cold_blooded); // false
+console.log(sheep.animalName); // "shaun"
+console.log(sheep.animalLegs); // 4
+console.log(sheep.animalColdBlooded); // false
 
 class Ape extends Animal {
   constructor(name) {
@@ -107,7 +119,9 @@ kodok.jump();
 console.log("\nSoal 5 :");
 class Clock {
   constructor({ template }) {
-    this.render = () => {
+    this.template = template;
+    var timer;
+    this.render = function () {
       var date = new Date();
 
       var hours = date.getHours();
@@ -129,14 +143,12 @@ class Clock {
   }
 
   stop() {
-    var timer;
     clearInterval(timer);
   }
 
   start() {
-    var timer;
     this.render();
-    timer = setInterval(this.render, 1000);
+    this.timer = setInterval(this.render, 1000);
   }
 }
 
