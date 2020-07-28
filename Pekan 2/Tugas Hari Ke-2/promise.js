@@ -9,9 +9,6 @@ function readBooksPromise(time, book) {
         console.log(
           `saya sudah selesai membaca ${book.name}, sisa waktu saya ${sisaWaktu}`
         );
-        if (sisaWaktu === 0) {
-          reject(sisaWaktu);
-        }
         resolve(sisaWaktu);
       } else {
         console.log(`saya sudah tidak punya waktu untuk baca ${book.name}`);

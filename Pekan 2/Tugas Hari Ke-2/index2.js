@@ -14,6 +14,9 @@ function readBook(time, books, start) {
     .then(function (resolve) {
       if (start < books.length - 1) {
         start++;
+        if (resolve === 0) {
+          reject(sisaWaktu);
+        }
         readBook(resolve, books, start);
       } else {
         console.log("\nSelesai Membaca");
